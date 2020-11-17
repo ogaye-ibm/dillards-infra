@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: helloboot2
+  name: helloboot2-service
+spec:
+  type: NodePort
+  ports:
+  - name: 8080-tcp
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: helloboot2

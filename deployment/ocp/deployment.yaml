@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: helloboot2
+    version: v2
+  name: helloboot2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloboot2
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: helloboot2
+        version: v2
+    spec:
+      containers:
+      - name: helloboot
+        image: image-registry.openshift-image-registry.svc:5000/dillard/helloboot:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
